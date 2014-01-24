@@ -16,10 +16,12 @@ Template.postSubmit.events({
         // if the error is that the post already exists, take us there
         if (error.error === 302) {
           Meteor.Router.to("postPage", error.details)
-        } else {
-          Meteor.Router.to("postPage", id)
         }
       }
+      else {
+        Meteor.Router.to("postPage", id)
+      }
+
 
     });
 
