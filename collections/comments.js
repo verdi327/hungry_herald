@@ -27,7 +27,9 @@ Meteor.methods({
     comment._id = Comments.insert(comment);
 
     // create a notification informing the post author of a new comment
-    createCommentNotification(comment);
+    if (user._id !== post.userId){
+      createCommentNotification(comment);
+    }
 
     return comment._id;
   }
