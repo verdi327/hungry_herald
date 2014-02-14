@@ -8,16 +8,20 @@
 
 <template name="postsList">
   <div class="posts">
-    {{#each postsWithRank}}
-      {{> postItem}}
-    {{/each}}
-
-    {{#if postsReady}}
-      {{#unless allPostsLoaded}}
-        <a href="#" class="load-more">Load More</a>
-      {{/unless}}
+    {{#if noPosts}}
+      <h1 class="no-posts">No Posts!</br> Go find something interesting and post it here</h1>
     {{else}}
-      <div>{{> spinner}}</div>
+      {{#each postsWithRank}}
+        {{> postItem}}
+      {{/each}}
+
+      {{#if postsReady}}
+        {{#unless allPostsLoaded}}
+          <a href="#" class="load-more">Load More</a>
+        {{/unless}}
+      {{else}}
+        <div>{{> spinner}}</div>
+      {{/if}}
     {{/if}}
   </div>
 </template>

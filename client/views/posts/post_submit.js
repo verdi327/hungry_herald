@@ -5,7 +5,6 @@ Template.postSubmit.events({
     var post = {
       url: $(event.target).find("[name=url]").val(),
       title: $(event.target).find("[name=title]").val(),
-      message: $(event.target).find("[name=message]").val()
     }
 
     Meteor.call("post", post, function(error, id) {
@@ -21,8 +20,6 @@ Template.postSubmit.events({
       else {
         Meteor.Router.to("postPage", id)
       }
-
-
     });
 
   }

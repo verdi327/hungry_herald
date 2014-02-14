@@ -29,10 +29,16 @@ Template.postsList.helpers({
   postsReady: function() {
     return this.handle.ready();
   },
+
   allPostsLoaded: function() {
     return this.handle.ready() &&
       Posts.find().count() < this.handle.loaded();
+  },
+
+  noPosts: function() {
+    return Posts.find().count() === 0
   }
+
 });
 
 Template.postsList.events({
