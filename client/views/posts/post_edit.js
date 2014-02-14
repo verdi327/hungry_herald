@@ -31,7 +31,7 @@ Template.postEdit.events({
     if (confirm("Delete this post?")) {
       var currentPostId = Session.get('currentPostId');
       Posts.remove(currentPostId);
-      Meteor.Router.to('postsList');
+      Meteor.Router.to('newPosts');
     }
   }
 });
